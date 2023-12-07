@@ -1,6 +1,7 @@
 import { Header } from "@repo/ui/header";
 
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -16,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div>
-          <Header />
+          <Header Link={Link} />
           <h1>This is the Next.js front end app</h1>
 
           <hr />

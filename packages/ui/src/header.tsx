@@ -13,11 +13,9 @@ export const Header = ({ Link = null }: any) => {
       <h2>Menu React Component shared package:</h2>
 
       {links.map((link) => (
-        <>
+        <div key={link.name}>
           {Link !== null ? (
-            <Link key={link.name} href={link.href}>
-              {link.name}
-            </Link>
+            <Link href={link.href}>{link.name}</Link>
           ) : (
             <a key={link.name} href={link.href}>
               {link.name}
@@ -25,7 +23,7 @@ export const Header = ({ Link = null }: any) => {
           )}
 
           <br />
-        </>
+        </div>
       ))}
     </div>
   );
