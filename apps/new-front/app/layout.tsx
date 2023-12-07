@@ -1,4 +1,5 @@
-import "./globals.css";
+import { Header } from "@repo/ui/header";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +14,15 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div>
+          <Header />
+          <h1>This is the Next.js front end app</h1>
+
+          <hr />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

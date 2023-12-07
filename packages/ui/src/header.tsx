@@ -1,20 +1,32 @@
 const links = [
-  { name: "Page A", href: "/page-a" },
-  { name: "Page B", href: "/page-b" },
-  { name: "Page C", href: "/page-c" },
+  { name: "Home Page (new - next.js)", href: "/" },
+  { name: "Page A (new - next.js)", href: "/page-a" },
+  { name: "Page B (old - React)", href: "/page-b" },
 ];
 
-export const Header = () => {
+/**
+ * optional Link prop accept Link Component from Next.js as a dependency injection
+ */
+export const Header = ({ Link = null }: any) => {
   return (
-    <>
-      <h2>Menu:</h2>
-      <ul>
-        <li>
-          {links.map((link) => (
-            <a href={link.href}>{link.name}</a>
-          ))}
-        </li>
-      </ul>
-    </>
+    <div style={{ border: "3px dotted gray", padding: "10px" }}>
+      <h2>Menu React Component shared package:</h2>
+
+      {links.map((link) => (
+        <>
+          {Link !== null ? (
+            <Link key={link.name} href={link.href}>
+              {link.name}
+            </Link>
+          ) : (
+            <a key={link.name} href={link.href}>
+              {link.name}
+            </a>
+          )}
+
+          <br />
+        </>
+      ))}
+    </div>
   );
 };
